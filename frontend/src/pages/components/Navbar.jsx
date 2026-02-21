@@ -15,22 +15,28 @@ const Navbar = () => {
   const [enableAi, setEnableAi] = useState(false);
   const [answer, setAnswer] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleLogout = async () => {
+    setLoading(true);
     await axios.post(logout);
     toast.success("logout successfull")
     setUser(null);
+    setLoading(false);
   }
 
   const aksAi = async (e) => {
     e.preventDefault();
     try {
+      setLoading(true);
       const question = e.target.question.value;
       const result = await axios.post(askDoubt,
         { question }, { withCredentials: true });
       setAnswer(result.data.answer)
     } catch (error) {
       setAnswer(error.response?.data?.message || "something went wrong please try after some time.")
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -68,7 +74,8 @@ const Navbar = () => {
                 <Link to={'/profile'}>{user.name.charAt(0).toUpperCase()}</Link>
               </div>
               <button onClick={handleLogout}
-                className={`p-2 rounded-md hidden sm:block bg-red-500 text-white hover:bg-red-600 transition cursor-pointer text-lg`}>
+                className={`p-2 rounded-md hidden sm:block bg-red-500 text-white hover:bg-red-600 transition cursor-pointer text-lg ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                disabled={loading}>
                 Logout
               </button>
             </>
@@ -93,7 +100,8 @@ const Navbar = () => {
                 className=' cursor-pointer text-center p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 text-lg'>Profile</Link>
 
                 <button onClick={() => { handleLogout(); setMenuOpen(false); }}
-                  className='p-2 rounded-md text-lg bg-red-500 text-white hover:bg-red-600 transition cursor-pointer'>
+                  className={`p-2 rounded-md text-lg bg-red-500 text-white hover:bg-red-600 transition cursor-pointer ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  disabled={loading}>
                   Logout
                 </button>
               </>
@@ -121,7 +129,7 @@ const Navbar = () => {
               type="text"
               name="question"
               placeholder="Type your question..."
-              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400"
+              className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-400" required
             />
             <button
               type="submit"
@@ -129,6 +137,7 @@ const Navbar = () => {
             >
               Get Answer
             </button>
+            {loading && <p className="text-gray-500">Generating answer...</p>}
 
             {answer.length > 0 && (
               <div className="mt-4 p-3 bg-gray-100 rounded-md border border-gray-300 overflow-auto max-h-[80vh]">

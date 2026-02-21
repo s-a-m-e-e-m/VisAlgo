@@ -4,8 +4,6 @@ import Otp from '../models/otp.model.js';
 import nodemailer from 'nodemailer';
 
 function isValidEmail(email) {
-  // Require: local-part@(label{2,}.)(label{2,}.)*TLD{2,}
-  // This prevents single-letter domain labels (e.g. `g.com`).
   const regex = /^[^\s@]+@([A-Za-z0-9-]{2,}\.)+[A-Za-z]{2,}$/;
   return regex.test(email);
 }

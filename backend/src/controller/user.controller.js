@@ -43,7 +43,10 @@ export const signupUser = async (req, res) => {
         user: {
             name: user.name,
             email: user.email,
-            _id: user._id
+            _id: user._id,
+            description: user.description,
+            topicsCovered: user.topicsCovered,
+            hasSubscribed: user.hasSubscribed
         }
     })
 }
@@ -88,7 +91,10 @@ export const loginUser = async (req, res) => {
         user: {
             name: isUserExists.name,
             email: isUserExists.email,
-            _id: isUserExists._id
+            _id: isUserExists._id,
+            description: isUserExists.description,
+            topicsCovered: isUserExists.topicsCovered,
+            hasSubscribed: isUserExists.hasSubscribed
         }
     })
 }

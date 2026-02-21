@@ -20,11 +20,11 @@ const Dashboard = () => {
     try {
       const res = await axios.put(
         editDescription,
-        { userId: user._id, description: user.description },
+        { userId: user._id, description: description },
         { withCredentials: true }
       );
       if (res.status === 200) {
-        setUser((prev) => ({ ...prev, description: user.description }));
+        setUser((prev) => ({ ...prev, description: description }));
         setIsEditingDescription(false);
       } else {
         alert('Failed to update description. Please try again.');

@@ -1,4 +1,4 @@
-AlgoVis – Data structures Visualizer with support AI Doubt Solver & Progress Tracker
+VisAlgo – Data structures Visualizer with AI Doubt Solver support & Progress Tracker
 
 ✨ Features
 - 🎨 Real-time algorithm visualizations (Sorting Algorithms, Binary Search Tree, Queues, Deques, Stack, Linked List, etc.)
@@ -8,4 +8,4 @@ AlgoVis – Data structures Visualizer with support AI Doubt Solver & Progress T
 - 🔐 Secure user authentication with **email verification** (only real emails allowed)
 - Responsive design (mobile + desktop)
 
-Going to add a live working link soon 
+Live Webpage url: https://visalgoin.vercel.app/

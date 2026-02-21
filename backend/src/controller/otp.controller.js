@@ -19,18 +19,34 @@ const sendEmail = async (to, otp) => {
     });
 
     const mailOptions = {
-      from: `"Team VisAlgo" `,
-      to,
-      subject: "Verify your email - OTP",
+      from: '"VisAlgo Team" <no-reply@visalgo.com>',
+      to: to,
+      subject: "Your VisAlgo Verification Code",
+      text: `Hi,
+
+Thank you for signing up for VisAlgo.
+
+Your One-Time Password (OTP) is: ${otp}
+
+This code will expire in 5 minutes.
+
+If you did not request this, please ignore this email.
+
+- VisAlgo Team`,
       html: `
-        <div style="font-family: Arial, sans-serif;">
-          <h2>Email Verification</h2>
-          <p>Your OTP is:</p>
-          <h1 style="letter-spacing: 2px;">${otp}</h1>
-          <p>This OTP is valid for <b>5 minutes</b>.</p>
-          <p>If you did not request this, please ignore this email.</p>
-        </div>
-      `,
+  <div style="font-family: Arial, sans-serif; padding: 20px;">
+    <h2 style="color:#333;">VisAlgo Email Verification</h2>
+    <p>Hi,</p>
+    <p>Thank you for signing up for <b>VisAlgo</b>.</p>
+    <p>Your One-Time Password (OTP) is:</p>
+    <h1 style="letter-spacing: 3px; color:#2c3e50;">${otp}</h1>
+    <p>This code will expire in <b>5 minutes</b>.</p>
+    <p>If you did not request this, you can safely ignore this email.</p>
+    <br/>
+    <p style="font-size:12px; color:gray;">
+      © ${new Date().getFullYear()} VisAlgo. All rights reserved.
+    </p>
+  </div>`
     };
 
     await transporter.sendMail(mailOptions);

@@ -117,7 +117,7 @@ const SignUp = () => {
                     )}
                     <label htmlFor="password" className='font-semibold'>Password</label>
                     <input type="password" name='password' placeholder='Enter your password' className='border border-gray-400 mb-4 rounded-md p-2' required />
-                    <button type='submit' className={`bg-blue-500 p-2 text-white rounded-md ${!verified ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600 cursor-pointer'}`} disabled={!verified || loading} >{loading ? 'Submitting...' : 'Submit'}</button>
+                    <button type='submit' className={`bg-blue-500 p-2 text-white rounded-md ${!verified ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-600 cursor-pointer'}`} disabled={!verified || loading}>Submit</button>
                 </div>
 
                 <p className='text-center'>Already have an account? <Link to={'/signin'} className='text-blue-700'>Sign In</Link></p>

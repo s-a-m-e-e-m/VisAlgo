@@ -196,8 +196,8 @@ export default function StackQuiz() {
                         <p className="font-semibold">Score: {score} / {quizData.length}</p>
                         <button
                             onClick={handleSubmit}
-                            className="mt-4 p-2 md:px-6 md:py-2 bg-blue-600 text-white rounded hover:bg-blue-700 cursor-pointer">
-                            Submit Quiz
+                            className="mt-4 p-2 md:px-6 md:py-2 bg-blue-600 text-white rounded hover:bg-blue-700 cursor-pointer" disabled={submitted || !user}>
+                            {!user ? "Login to Submit Quiz" : submitted ? "Quiz Submitted" : "Submit Quiz"}
                         </button>
 
                         <div className='text-lg font-semibold mt-1'>{result}</div>

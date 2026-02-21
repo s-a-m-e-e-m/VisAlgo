@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../auth/AuthContext';
 import axios from 'axios';
 import { askDoubt, logout } from '../../utils/links';
@@ -16,6 +16,7 @@ const Navbar = () => {
   const [answer, setAnswer] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
     setLoading(true);
@@ -23,6 +24,7 @@ const Navbar = () => {
     toast.success("logout successfull")
     setUser(null);
     setLoading(false);
+    navigate("/");
   }
 
   const aksAi = async (e) => {

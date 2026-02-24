@@ -144,7 +144,7 @@ const Navbar = () => {
             {answer.length > 0 && (
               <div className="mt-4 p-3 bg-gray-100 rounded-md border border-gray-300 overflow-auto max-h-[80vh]">
                 <h3 className="font-semibold text-gray-700 mb-2">Answer:</h3>
-                <p className="text-gray-800 whitespace-pre-line text-md pb-8">{answer}</p>
+                <p className="text-gray-800 whitespace-pre-line text-md pb-15">{answer}</p>
               </div>
             )}
           </form>

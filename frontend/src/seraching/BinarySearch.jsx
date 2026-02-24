@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 import BinarysearchQuiz from "../pages/quizes/BinarysearchQuiz";
 
 const BinarySearch = () => {
-  const [array, setArray] = useState([43, 23, 12, 29, 9, 10, 34, 10]);
+  const [array, setArray] = useState([43, 23, 12, 29, 9, 34, 10]);
   const [inputValue, setInputValue] = useState("");
   const [target, setTarget] = useState("");
   const [result, setResult] = useState("");
@@ -123,14 +123,8 @@ const BinarySearch = () => {
       </div>
 
       {/* Controls */}
-      <div className="mb-4 flex gap-2">
-        <input
-          type="text"
-          value={inputValue}
-          placeholder="Enter elements"
-          className="border w-[200px] p-2 rounded"
-          onChange={(e) => setInputValue(e.target.value)}
-        />
+      <div className="mb-4 flex flex-col sm:flex-row gap-2">
+        <div className="flex gap-2">
         <input
           type="number"
           placeholder="Enter target"
@@ -143,17 +137,28 @@ const BinarySearch = () => {
         >
           Search
         </button>
-        <button
-          className="p-2 bg-red-500 text-white text-lg rounded hover:bg-red-600"
-          onClick={clearArray}
-        >
-          Clear
-        </button>
+        </div>
+
+        <div className="flex gap-2">
+        <input
+          type="text"
+          value={inputValue}
+          placeholder="insert elements"
+          className="border w-[200px] p-2 rounded"
+          onChange={(e) => setInputValue(e.target.value)}
+        />
         <button
           className="p-2 bg-blue-500 text-white text-lg rounded hover:bg-blue-600"
           onClick={insertInArray}
         >
           Insert
+        </button>
+        </div>
+        <button
+          className="p-2 bg-red-500 text-white text-lg rounded hover:bg-red-600"
+          onClick={clearArray}
+        >
+          Clear
         </button>
       </div>
 
@@ -171,15 +176,15 @@ const BinarySearch = () => {
       </div>
 
       {/* Array visualization */}
-      <div className="flex gap-2">
+      <div className="flex gap-1">
         {[...array].sort((a, b) => a - b).map((ele, i) => (
           <motion.div
             key={i}
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.3 }}
-            className={`flex items-center justify-center text-lg font-semibold 
-                        w-12 h-12 rounded-md text-white ring-1 ring-white/40 ${highlightIndex === i ? "bg-yellow-300" : "bg-blue-500"
+            className={`flex items-center justify-center text-lg font-semibold w-10 h-10 
+                        sm:w-12 sm:h-12 rounded-md text-white ring-1 ring-white/40 ${highlightIndex === i ? "bg-yellow-300" : "bg-blue-500"
               }`}
           >
             {ele}

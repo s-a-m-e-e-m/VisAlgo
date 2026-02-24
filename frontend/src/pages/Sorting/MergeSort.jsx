@@ -114,7 +114,7 @@ export default function MergeSortVisualizer() {
     <h1 className="text-3xl font-bold mb-4 mt-4 text-center">Merge Sort</h1>
 
     {/* Theory Section */}
-    <div className="bg-gray-50 p-4 rounded shadow mb-6">
+    <div className="bg-gray-50 p-4 rounded shadow mb-6 w-full">
       <h2 className="text-2xl font-semibold mb-2">📘 What is Merge Sort?</h2>
       <p className="text-gray-700 text-lg mb-2">
         <strong>Merge Sort</strong> is a classic divide-and-conquer sorting algorithm. It works by recursively

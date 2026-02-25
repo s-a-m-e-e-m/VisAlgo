@@ -69,7 +69,7 @@ const BinarySearch = () => {
     <div className="p-6 flex flex-col items-center space-y-6 max-w-5xl mx-auto">
       <Toaster position="top-center" />
 
-      <h1 className="text-3xl font-bold text-blue-600 mb-4">Binary Search</h1>
+      <h1 className="text-3xl font-bold mb-4">Binary Search</h1>
 
       {/* Theory Section */}
       <div className="bg-gray-50 p-4 rounded shadow mb-6 w-full">

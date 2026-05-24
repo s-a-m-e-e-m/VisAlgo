@@ -148,17 +148,17 @@ REMOVE(map, key):
       </div>
 
       {/* Buckets */}
-      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
         {buckets.map((bucket, i) => (
           <motion.div
             key={i}
             className={`border rounded p-2 min-h-[50px] sm:min-h-[80px] ${highlight === i ? "bg-yellow-200" : "bg-gray-100"
               }`}
-            animate={{ scale: highlight === i ? 1.1 : 1 }}
+            animate={{ scale: highlight === i ? 1.05 : 1 }}
             transition={{ duration: 0.3 }}
           >
             <p className="font-semibold">Bucket {i}</p>
-            <div className="flex space-x-2 mt-2">
+            <div className="flex flex-col space-y-2 mt-2">
               <AnimatePresence>
                 {bucket.map((node, j) => (
                   <motion.div

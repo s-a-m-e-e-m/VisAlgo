@@ -1,15 +1,17 @@
-export const signUp = 'https://visalgo.onrender.com/api/users/signup';
+const baseUrl = 'https://visalgo.onrender.com/api';
 
-export const login = 'https://visalgo.onrender.com/api/users/login';
-export const logout = 'https://visalgo.onrender.com/api/users/logout';
+export const signUp = `${baseUrl}/users/signup`;
 
-export const getUser = 'https://visalgo.onrender.com/api/users/getuser';
+export const login = `${baseUrl}/users/login`;
+export const logout = `${baseUrl}/users/logout`;
 
-export const askDoubt = 'https://visalgo.onrender.com/api/ai/doubt/ask';
+export const getUser = `${baseUrl}/users/getuser`;
 
-export const topicsCovered = 'https://visalgo.onrender.com/api/users/topic/completed';
+export const askDoubt = `${baseUrl}/ai/doubt/ask`;
 
-export const editDescription = 'https://visalgo.onrender.com/api/users/description/edit';
+export const topicsCovered = `${baseUrl}/users/topic/completed`;
 
-export const sendOtpLink = 'https://visalgo.onrender.com/api/auth/otp/send';
-export const verifyOtpLink = 'https://visalgo.onrender.com/api/auth/otp/verify';
+export const editDescription = `${baseUrl}/users/description/edit`;
+
+export const sendOtpLink = `${baseUrl}/auth/otp/send`;
+export const verifyOtpLink = `${baseUrl}/auth/otp/verify`;

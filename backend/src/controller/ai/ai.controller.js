@@ -1,4 +1,5 @@
 import Groq from "groq-sdk";
+import { model } from "mongoose";
 
 let groqClient;
 
@@ -16,7 +17,8 @@ export default async function getResponse(req, res) {
         const prompt = `You are a data structure and algorithm tutor.\nWrite correct, well-commented answer with explanation for the Question: ${question}`;
 
         const result = await groqClient.chat.completions.create({
-            model: "llama-3.1-8b-instant",
+            // model: "llama-3.1-8b-instant",
+            model: "qwen/qwen3.6-27b",
             messages: [{ role: "user", content: prompt }],
         });
 
